@@ -6,8 +6,11 @@ and Tarpaulins under Railway Tarpaulin Accumulation”* (IMDS 2026).
 **Status.** The synthetic network instance and the held-out demand generator are released here, so
 that the instance reported in Section 4.1 and the batches used in Section 4.2 can be inspected and
 regenerated. The solver and the experiment scripts that produce Tables 1–8 are being prepared and
-**will be added to this repository (tag `v1.0.0`) upon acceptance of the paper**; a table-by-table
-reproduction guide will ship with them.
+**will be added to this repository upon acceptance of the paper**; a table-by-table reproduction
+guide will ship with them.
+
+All files are kept in the repository root so that the scripts run without any folder setup: put the
+download in one folder, `cd` into it, and run.
 
 ## The instance
 
@@ -26,14 +29,14 @@ identifiers and do not report actual inventories.
 
 | File | Content |
 |---|---|
-| `inputs/source_stocks.csv` | supply stations: `Stock20`, `Stock40` (boxes), `StockTarp` (tarpaulins) |
-| `inputs/destination_stocks_budgets.csv` | demand stations: `Local20`, `Local40` (boxes), `LocalTarp` (tarpaulins), `BudgetTEU` (cumulative budget) |
-| `inputs/links.csv` | `Source`, `Destination`, `DistanceKm`, `TimeHour`, `DailyCapacity` (boxes/day), and stage prices `Pre20`, `Pre40`, `PreTarp`, `Rec20`, `Rec40`, `RecTarp` (CNY per unit) |
-| `inputs/scenario_weights.csv` | `Scenario`, `Weight` (probability), `CapacityMultiplier` |
-| `inputs/demand20.csv`, `demand40.csv`, `demand_tarp.csv` | baseline demand, destinations (rows) × scenarios (columns), seven-day totals |
-| `inputs/parameters.json` | penalties, substitution caps, budget weights and solver settings |
-| `generators/generateTest.m` | held-out demand generator, reproduced verbatim from the experiment code |
-| `generators/makeScenarioBatch.m` | reads the instance and returns one batch for a given seed |
+| `source_stocks.csv` | supply stations: `Stock20`, `Stock40` (boxes), `StockTarp` (tarpaulins) |
+| `destination_stocks_budgets.csv` | demand stations: `Local20`, `Local40` (boxes), `LocalTarp` (tarpaulins), `BudgetTEU` (cumulative budget) |
+| `links.csv` | `Source`, `Destination`, `DistanceKm`, `TimeHour`, `DailyCapacity` (boxes/day), and stage prices `Pre20`, `Pre40`, `PreTarp`, `Rec20`, `Rec40`, `RecTarp` (CNY per unit) |
+| `scenario_weights.csv` | `Scenario`, `Weight` (probability), `CapacityMultiplier` |
+| `demand20.csv`, `demand40.csv`, `demand_tarp.csv` | baseline demand, destinations (rows) × scenarios (columns), seven-day totals |
+| `parameters.json` | penalties, substitution caps, budget weights and solver settings |
+| `generateTest.m` | held-out demand generator, reproduced verbatim from the experiment code |
+| `makeScenarioBatch.m` | reads the instance and returns one batch for a given seed |
 | `demo_generate_batch.m` | runs the six seeds of Section 4.2 and prints each batch |
 
 ## Regenerating the held-out batches
@@ -48,7 +51,6 @@ demo_generate_batch
 or, for a single batch:
 
 ```matlab
-addpath('generators');
 b = makeScenarioBatch(20261012, 32);
 ```
 
@@ -59,4 +61,4 @@ seed 20261109.
 
 ## License and citation
 
-Data files: CC BY 4.0. Code: MIT (see `LICENSE`). Please cite the paper.
+Data files and code: see `LICENSE` (code MIT, data CC BY 4.0). Please cite the paper.

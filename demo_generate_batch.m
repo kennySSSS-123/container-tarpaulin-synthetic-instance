@@ -1,10 +1,7 @@
 %DEMO_GENERATE_BATCH  Reproduce the held-out batches of the allocation experiments.
 %   Runs the six seeds of Section 4.2 (20261012 ... 20261017), 32 scenarios each,
-%   and prints the size of each batch. Nothing in the repository depends on a
-%   solver, so this runs in a plain MATLAB session with no toolboxes.
-
-root = fileparts(mfilename('fullpath'));
-addpath(fullfile(root, 'generators'));
+%   and prints the size of each batch. Nothing in this download needs a solver,
+%   so this runs in a plain MATLAB session with no toolboxes.
 
 seeds = 20261012:20261017;
 for seed = seeds

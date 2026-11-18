@@ -16,8 +16,7 @@ if nargin < 2
     N = 32;
 end
 
-inputs = fileparts(mfilename('fullpath'));  
-% all data files sit in this folder
+inputs = fileparts(mfilename('fullpath'));   % all data files sit in this folder
 
 d.nJ         = size(readmatrix(fullfile(inputs, 'demand20.csv')), 1);
 d.demand20   = readmatrix(fullfile(inputs, 'demand20.csv'));

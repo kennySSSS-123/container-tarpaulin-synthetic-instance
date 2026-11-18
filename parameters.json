@@ -1,0 +1,1 @@
+{"days":7,"capacityScale":1,"preCapacityScale":1,"short20Penalty":2800,"short40Penalty":5200,"shortTarpPenalty":900,"overYardPenalty":1200,"subPenalty40to20":260,"subPenalty20to40":620,"maxSub40to20Ratio":0.25,"maxSub20to40Ratio":0.1,"tarpCapacityWeight":0.1,"tarpYardWeight":0.05,"useInteger":false,"solverDisplay":"none"}
